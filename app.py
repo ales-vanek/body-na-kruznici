@@ -42,10 +42,19 @@ with tab1:
 
 with tab2:
     st.subheader("👤 Informace o autorovi")
-    jmeno = st.text_input("Vaše jméno:", "Jan Novák")
-    kontakt = st.text_input("Kontakt (e-mail):", "novak@example.com")
-    technologie = ["Python", "Streamlit", "Matplotlib", "FPDF", "GitHub"]
-    st.markdown(f"**Použité technologie:** {', '.join(technologie)}")
+    st.markdown("""
+    **Jméno:** Aleš Vaněk  
+    **Status:** Student Fakulty informačních technologií, VUT v Brně  
+    **E-mail:** ales.vanek@example.com  
+
+    ### Použité technologie:
+    - **Python** – hlavní programovací jazyk  
+    - **Streamlit** – jednoduchý framework pro webové aplikace v Pythonu  
+    - **Matplotlib** – knihovna pro kreslení grafů  
+    - **NumPy** – práce s maticemi a výpočty (souřadnice bodů)  
+    - **FPDF** – generování PDF souborů  
+    - **GitHub** – správa verzí a sdílení zdrojového kódu  
+    """)
 
 # --- Export do PDF ---
 st.subheader("📄 Export do PDF")
@@ -57,14 +66,31 @@ if st.button("Vytvořit PDF"):
     pdf.cell(200, 10, txt="Report – Body na kružnici", ln=True, align="C")
     pdf.ln(10)
 
-    pdf.cell(200, 10, txt=f"Autor: {jmeno}", ln=True)
-    pdf.cell(200, 10, txt=f"Kontakt: {kontakt}", ln=True)
+    # Informace o autorovi
+    pdf.cell(200, 10, txt="Autor: Aleš Vaněk", ln=True)
+    pdf.cell(200, 10, txt="Status: Jsem studentem FAST VUT v Brně. Pocházím z menší obce jižně od Znojma a toto je můj pokus o webou aplikaci.", ln=True)
+    pdf.cell(200, 10, txt="E-mail: 278507@vutbr.cz", ln=True)
+    pdf.ln(10)
+
+    # Parametry úlohy
     pdf.cell(200, 10, txt=f"Střed: ({x0}, {y0})", ln=True)
     pdf.cell(200, 10, txt=f"Poloměr: {r}", ln=True)
     pdf.cell(200, 10, txt=f"Počet bodů: {n}", ln=True)
     pdf.cell(200, 10, txt=f"Barva bodů: {barva}", ln=True)
+    pdf.ln(10)
 
-    # Uložení do paměti místo na disk
+    # Info o technologiích
+    pdf.cell(200, 10, txt="Použité technologie:", ln=True)
+    pdf.multi_cell(0, 10, 
+        "- Python – hlavní jazyk\n"
+        "- Streamlit – web aplikace\n"
+        "- Matplotlib – grafy\n"
+        "- NumPy – výpočty\n"
+        "- FPDF – export PDF\n"
+        "- GitHub – správa verzí"
+    )
+
+    # Uložení do paměti
     pdf_buffer = BytesIO()
     pdf.output(pdf_buffer)
     pdf_buffer.seek(0)
