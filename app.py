@@ -9,7 +9,7 @@ st.set_page_config(page_title="Body na kružnici", layout="wide")
 
 # --- Autor / kontakt (pevné) ---
 AUTHOR_NAME = "Aleš Vaněk"
-AUTHOR_EMAIL = "ales.vanek@example.com"
+AUTHOR_EMAIL = "278507@vutbr.cz"
 AUTHOR_DESC = (
     f"{AUTHOR_NAME} – student Fakulty stavební VUT v Brně.\n"
     "Zajímám se o praktické využití matematiky a programování v inženýrské praxi. "
