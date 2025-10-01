@@ -44,8 +44,8 @@ with tab2:
     st.subheader("👤 Informace o autorovi")
     st.markdown("""
     **Jméno:** Aleš Vaněk  
-    **Status:** Student Fakulty informačních technologií, VUT v Brně  
-    **E-mail:** ales.vanek@example.com  
+    **Status:** Student Fakulty stavební, VUT v Brně  
+    **E-mail:** 278507@vutbr.cz
 
     ### Použité technologie:
     - **Python** – hlavní programovací jazyk  
